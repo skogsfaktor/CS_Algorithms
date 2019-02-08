@@ -8,6 +8,10 @@ public class Tester {
         SortingAlgorithms.insertionSort(testArray);
 
         System.out.println(SearchAlgorithms.linearSearch(3, testArray));
+
+        HashishMap<String, Integer> testMap = new HashishMap<String, Integer>(10);
+        testMap.put("Hej", 1);
+        testMap.put("Nee", 5);
     }
 
     public static void printArray(int[] array) {

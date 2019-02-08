@@ -1,4 +1,4 @@
-package dataStructures;
+package RandomStuff;
 
 public class OrderedBinaryTree {
     Node root;

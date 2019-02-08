@@ -10,8 +10,11 @@ public class HashishMap<K, V> {
 
     private LinkedList<V>[] buckets;
 
-    public void Hashish(int size) {
+    public HashishMap(int size) {
         buckets = (LinkedList<V>[])new LinkedList[size];
+        for(LinkedList<V> bucket : buckets) {
+            bucket = new LinkedList<V>();
+        }
     }
 
     public void put(K key, V value) {
@@ -23,6 +26,6 @@ public class HashishMap<K, V> {
     }
 
     public void delete(K key) {
-        
+
     }
 }

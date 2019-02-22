@@ -37,10 +37,12 @@ public class DailyCodingProblem_3 {
         }
 
         public String serialize(Node root) {
-            if(left == null && right == null) {
+            if(left == null) {
+                return "null";
+            } else if(right == null){
                 return "null";
             } else {
-                return val + serialize(left) + serialize(right);
+                return "" + val + serialize(left) + serialize(right);
             }
         }
     }

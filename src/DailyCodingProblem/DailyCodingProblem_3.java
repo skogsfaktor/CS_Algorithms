@@ -37,13 +37,24 @@ public class DailyCodingProblem_3 {
         }
 
         public String serialize(Node root) {
-            if(left == null) {
-                return "null";
-            } else if(right == null){
+            if(root == null) {
                 return "null";
             } else {
-                return "" + val + serialize(left) + serialize(right);
+                return "[" + root.val + ", " + serialize(root.left) + ", " + serialize(root.right) + "]";
             }
+        }
+
+        public Node deserialize(String serialized) {
+            for(int i = 0; i < serialized.length(); i++) {
+                if(serialized.charAt(i) == '[') {
+                    StringBuilder nodeVal = new StringBuilder();
+                    for(int j = i++; j < i; j++) {
+
+                    }
+                }
+            }
+
+            return new Node("ass");
         }
     }
 
@@ -52,7 +63,7 @@ public class DailyCodingProblem_3 {
                 new DailyCodingProblem_3.Node("left", new DailyCodingProblem_3.Node("left.left")),
                 new DailyCodingProblem_3.Node("right"));
 
-        //System.out.println(tree.right.val);
+        System.out.println(tree.right.val);
         System.out.println(tree.serialize(tree));
     }
 }

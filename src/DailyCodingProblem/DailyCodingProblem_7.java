@@ -1,7 +1,7 @@
 /*
 Given the mapping a = 1, b = 2, ... z = 26, and an encoded message, count the number of ways it can be decoded.
 
-For example, the message '111' would give 3, since it could be decoded as 'aaa', 'ka', and 'ak'.
+For example, the message ' ' would give 3, since it could be decoded as 'aaa', 'ka', and 'ak'.
 
 You can assume that the messages are decodable. For example, '001' is not allowed.
 */
@@ -10,13 +10,15 @@ import java.util.*;
 
 public class DailyCodingProblem_7 {
     public static void main(String args[]) {
-        String input = "321";
+        String input = "111";
 
         DecodeCounter decodeCounter = new DecodeCounter(input);
         System.out.println("Count: " + decodeCounter.getCount());
 
         SuckyDick suckyDick = new SuckyDick(input);
         System.out.println("Sucky Count: " + suckyDick.getCount());
+
+        System.out.println("Lukas Count: " + LukasSolution.decodeCounter(input));
     }
 }
 
@@ -35,7 +37,7 @@ class DecodeCounter {
 
     private void countSubstrings(String left, String right) {
         int val = Integer.valueOf(right);
-        System.out.println(val);
+        //System.out.println(val);
         if (val < 26) {
             count++;
         }
@@ -85,5 +87,20 @@ class SuckyDick {
                 curr = oldCurr;
             }
         }
+    }
+}
+
+class LukasSolution {
+    public static int decodeCounter(String code) {
+        int count = 0;
+        boolean allSmaller = true;
+        for(int i = 0; i < code.length()-1; i++) {
+            if(Integer.parseInt(code.substring(i, i+2)) <= 26) {
+                count+=2;
+            } else {
+                allSmaller = false;
+            }
+        }
+        return Math.max(1, allSmaller? count-1 : count); 
     }
 }
